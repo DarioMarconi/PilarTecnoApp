@@ -16,23 +16,33 @@ import {
 } from 'react-native';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import {Botton, Stack} from '@rneui/themed';
+import {Button, Stack,Avatar, Icon} from '@rneui/themed';
 import 'react-native-gesture-handler';
 import  Header  from "../components/AppHeader"
+import { appSelector, appActions } from '../redux/appRedux';
+import {useSelector, useDispatch} from "react-redux"
 
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
 
 const Profile = () => {
+  
+  const user = useSelector(appSelector.user)
 
   return (
     <SafeAreaProvider>
-        <Header title= "Profile"/>
-        <View style={{...styles.viewGrid}}>
-            <TouchableOpacity style={{...styles.buttonGrid, backgroundColor:"#183ed6"}}>
-                <Text style={styles.textButton}>PROFILE</Text>
-            </TouchableOpacity>
-        </View>
+        <Header title= "Profile" rightComponent={<Icon/>}/>
+          <View style={{...styles.viewGrid,flexDirection:"row", flex:1}}>
+            <Avatar
+              size={60}
+              rounded
+              source={ require("../assest/imagenes/avatar.png")}
+              />
+              <Text style={{...styles.selectionDescription, marginLeft: 10}}>{user.name} {user.lastname}</Text>
+          </View>
+          <View>
+            <Text style={{textAlign:"center", fontSize:18,paddingTop:10}}>darioenriquemarconi@gmail.com</Text>
+          </View>
     </SafeAreaProvider>
   );
 };
@@ -71,11 +81,12 @@ const styles = StyleSheet.create({
   },
   selectionDescription:{
     marginTop:8,
-    fontSize:18,
+    fontSize:30,
     fontWeight:"400",
   },
   highlight:{
     fontWeight:"700",
   },
 });
+
 export default Profile;
