@@ -2,6 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Tabs from './tabs';
 import Login from '../screens/Login';
 import Tareas from '../screens/Tareas';
+import ListDetail from '../screens/ListDetail';
 import {useSelector} from "react-redux";
 import { appSelector } from '../redux/appRedux';
 
@@ -20,6 +21,7 @@ export const AppStack = () => {
             <Stack.Screen name="Login" component={Login} />
         }
     <Stack.Screen name="Tareas" component={Tareas} />
+    <Stack.Screen name="Detail" component={ListDetail} />
     </Stack.Navigator>
   );
 }

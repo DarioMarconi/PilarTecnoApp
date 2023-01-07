@@ -1,71 +1,60 @@
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from "@react-navigation/stack"
 import Home from "../screens/Home"
-import Tareas from '../screens/Tareas'
 import Profile from "../screens/Profile"
 import GoogleMaps from '../screens/GoogleMaps';
 import List from '../screens/List';
-import ListDetail from '../screens/ListDetail'
+import ListDetail from '../screens/ListDetail';
 import { Icon } from '@rneui/base';
 
-const HomeStack = createStackNavigator();
-const HomeScreens = () =>{
-
-const sesion  = true
-  return (
-    <HomeStack.Navigator screenOptions= {{headerShown:false}}>
-        <HomeStack.Screen name="Home" component={Home}/>   
-        <HomeStack.Screen name="Tareas" component= {Tareas}/>
-    </HomeStack.Navigator>
-  );
-}
-
-const ListStack = createStackNavigator();
-const ListScreens = () =>{
-
-const sesion  = true
-  return (
-    <HomeStack.Navigator screenOptions= {{headerShown:false}}>
-        <HomeStack.Screen name="List" component={List}/>   
-        <HomeStack.Screen name="Detail" component= {ListDetail}/>
-    </HomeStack.Navigator>
-  );
-}
-
 const Tab = createMaterialBottomTabNavigator();
+const TAB_COLOR = "#183ed6"
 
-const PRIMARY_COLOR = '#0da9ba'
+const HomeStack= createStackNavigator();
 
-export const Tabs = () =>{
+/*const ListScreen = () => {
+    const sesion = true
+    return(
+        <HomeStack.Navigator screenOptions= {{headerShown:false}}>
+            <HomeStack.Screen name="List" component={List}/>
+            <HomeStack.Screen name="Detail" component={ListDetail}/>
+        </HomeStack.Navigator>
+    )
+}
+*/
 
+const Tabs = () => {
+  return (
     <Tab.Navigator
-    activeColor= '#03535c'
-        barStyle = {{backgroundColor: PRIMARY_COLOR}}
+    
+        barStyle = {{backgroundColor: TAB_COLOR}}
     >
-        <Tab.Screen name="Casa" component={HomeScreens} options = {{
+        <Tab.Screen name="Home" component={Home} 
+        options={{
             tabBarLabel:"Home",
             tabBarIcon: ({color}) => (
                 <Icon
                     name="home"
                     type="font-awesome-5"
-                    color="#03535c"
+                    color="black"
                 />
             ),
         }}/>
-        <Tab.Screen name="Profile" component={Profile} options={{
+        <Tab.Screen name="Profile" component={Profile}
+        options={{
             tabBarLabel:"Profile",
             tabBarIcon: ({color}) => (
                 <Icon
                     name="user"
                     type="font-awesome-5"
-                    color="#03535c"
+                    color="black"
                 />
             ),
         }}
          />
-        <Tab.Screen name="Listas" component={ListScreens}
+        <Tab.Screen name="List" component={List}
         options={{
-            tabBarLabel:"List",
+            tabBarLabel:"Listas",
             tabBarIcon: ({color}) => (
                 <Icon
                     name="list"
@@ -90,4 +79,5 @@ export const Tabs = () =>{
     </Tab.Navigator>
   );
 }
+
 export default Tabs;

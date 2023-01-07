@@ -11,17 +11,17 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {Botton, Stack} from '@rneui/themed';
 import Header from '../components/AppHeader';
 import 'react-native-gesture-handler';
-import {useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
 
 const Home = () => {
+
     const navigation = useNavigation()
     const navigateTo = (route) => {
         navigation.navigate(route)
@@ -38,7 +38,7 @@ const Home = () => {
             </TouchableOpacity>
           </View>
           <View style={{...styles.viewGrid, justifyContent:"flex-end", paddingBottom:"5%"}}>
-          <TouchableOpacity style={{...styles.buttonGrid, backgroundColor:"#183ed6"}} onPress={()=>navigateTo('Listas')}>
+          <TouchableOpacity style={{...styles.buttonGrid, backgroundColor:"#183ed6"}} onPress={()=>navigateTo("List")}>
               <Text style={styles.textButton}>LISTA</Text>
             </TouchableOpacity>
           </View>
@@ -102,4 +102,5 @@ const styles = StyleSheet.create({
     fontWeight:"700",
   },
 });
+
 export default Home;

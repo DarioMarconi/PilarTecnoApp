@@ -7,7 +7,6 @@ import {
   View,
 
 } from 'react-native';
-
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {Button, Stack} from '@rneui/themed';
 import 'react-native-gesture-handler';
@@ -28,7 +27,7 @@ const Login = () => {
     <SafeAreaProvider>
 
         <View style={{...styles.viewGrid, justifyContent:"center", paddingBottom:"5%"}}>
-            <Button title="Ingresar" onPress={() => setAuth()} loadingProps={{ size: 'small', color: 'yellow' }}
+            <Button title="Ingresar" onPress={() => setAuth()} loadingProps={{ size: 'small', color: 'white' }}
               buttonStyle={{
                 backgroundColor: '#183ed6',
                 borderRadius: 5,
