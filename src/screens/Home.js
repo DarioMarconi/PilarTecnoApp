@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 import React from 'react';
 import {
   Dimensions,
@@ -23,7 +16,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {Botton, Stack} from '@rneui/themed';
 import Header from '../components/AppHeader';
 import 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation } from '@react-navigation/native';
 
 const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
@@ -45,7 +38,7 @@ const Home = () => {
             </TouchableOpacity>
           </View>
           <View style={{...styles.viewGrid, justifyContent:"flex-end", paddingBottom:"5%"}}>
-          <TouchableOpacity style={{...styles.buttonGrid, backgroundColor:"#183ed6"}} onPress={()=>navigateTo("List")}>
+          <TouchableOpacity style={{...styles.buttonGrid, backgroundColor:"#183ed6"}} onPress={()=>navigateTo('Listas')}>
               <Text style={styles.textButton}>LISTA</Text>
             </TouchableOpacity>
           </View>

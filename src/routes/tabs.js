@@ -5,6 +5,7 @@ import Tareas from '../screens/Tareas'
 import Profile from "../screens/Profile"
 import GoogleMaps from '../screens/GoogleMaps';
 import List from '../screens/List';
+import ListDetail from '../screens/ListDetail'
 import { Icon } from '@rneui/base';
 
 const HomeStack = createStackNavigator();
@@ -15,6 +16,18 @@ const sesion  = true
     <HomeStack.Navigator screenOptions= {{headerShown:false}}>
         <HomeStack.Screen name="Home" component={Home}/>   
         <HomeStack.Screen name="Tareas" component= {Tareas}/>
+    </HomeStack.Navigator>
+  );
+}
+
+const ListStack = createStackNavigator();
+const ListScreens = () =>{
+
+const sesion  = true
+  return (
+    <HomeStack.Navigator screenOptions= {{headerShown:false}}>
+        <HomeStack.Screen name="List" component={List}/>   
+        <HomeStack.Screen name="Detail" component= {ListDetail}/>
     </HomeStack.Navigator>
   );
 }
@@ -50,7 +63,7 @@ export const Tabs = () =>{
             ),
         }}
          />
-        <Tab.Screen name="List" component={List}
+        <Tab.Screen name="Listas" component={ListScreens}
         options={{
             tabBarLabel:"List",
             tabBarIcon: ({color}) => (
